@@ -1,4 +1,4 @@
 Rails.application.routes.draw do
-  devise_for :users
-  root to: "pages#start"
+  devise_for :users, controllers: {registrations: 'registrations', sessions: 'sessions'}
+  root to: "static#start"
 end
