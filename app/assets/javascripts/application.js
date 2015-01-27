@@ -13,4 +13,8 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
+//= require jquery-ui.min
+//= require jquery-ui.touch-punch.min
+//= require underscore.min
+//= require gridstack.min
 //= require_tree .

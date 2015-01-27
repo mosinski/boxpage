@@ -10,9 +10,16 @@
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav navbar-right">
         <% if user_signed_in? %>
-          <li>Logged in as <strong><%= current_user.email %></strong>.</li>
-          <li><%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %></li>
-          <li><%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link' %></li>
+          <li>
+            <%= link_to "#", :class => 'navbar-link' do %>
+              <i class="fa fa-th-large fa-3" style="font-size:20px;color:#000;"></i>
+            <% end %>
+          </li>
+          <li>
+            <%= link_to '#', class: "navbar-avatar", "data-toggle" => "popover", "data-placement" => "bottom", "data-content" => "#{render 'shared/popover_profile'}" do %>
+              <%= image_tag("https://lh5.googleusercontent.com/-PfncbBm91-A/AAAAAAAAAAI/AAAAAAAAAAA/iiQJuN_7LJw/photo.jpg", class: "img-circle") %>
+            <% end %>
+          </li>
         <% else %>
           <li><%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link' %></li>
           <li><%= link_to "Login", new_user_session_path, :class => 'navbar-link' %></li>
@@ -22,5 +29,13 @@
 
     <%= yield %>
 
+    <script type="text/javascript">
+      $(function () {
+        $('.grid-stack').gridstack({
+          width: 12,
+          always_show_resize_handle: /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)
+        });
+      });
+    </script>
   </body>
 </html>
