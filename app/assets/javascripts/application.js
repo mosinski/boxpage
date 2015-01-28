@@ -17,4 +17,5 @@
 //= require jquery-ui.touch-punch.min
 //= require underscore.min
 //= require gridstack.min
+//= require jquery.minicolors
 //= require_tree .

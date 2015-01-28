@@ -17,3 +17,4 @@ group :development, :test do
 end
 gem 'devise'
 gem 'font-awesome-rails'
+gem 'jquery-minicolors-rails'
