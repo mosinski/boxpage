@@ -1,7 +1,6 @@
-$(document).on("ajax:success", "form#sign_up_user, form#sign_in_user", function(e, data, status, xhr) {
+$(document).on("ajax:success", "form#sign_up_user, form#sign_in_user, form#edit_user", function(e, data, status, xhr) {
   if (!data.success) {
-    $("#devise_errors").hide();
-    $("#devise_errors").html("");
+    $("#devise_errors").html("").hide();
     $("#devise_errors").removeClass(' alert-success');
     $("#devise_errors").addClass("alert alert-danger animated fadeInUp");
     $.each(data.errors, function( index, error ){
@@ -11,7 +10,8 @@ $(document).on("ajax:success", "form#sign_up_user, form#sign_in_user", function(
   } else {
     $("#devise_errors").removeClass(' alert-danger');
     $("#devise_errors").addClass("alert alert-success animated fadeInUp");
-    $("#devise_errors").html("Welcome back!");
+    $("#devise_errors").html(data.notice).show();
+    window.location = '/'
   }
 });
 
