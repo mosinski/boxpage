@@ -22,7 +22,6 @@
   border-bottom: 1px solid #ebebeb;
 }
 .popover {
-  /*white-space: nowrap;*/
   width:300px;
 }
 .popover .col-xs-12, .popover .col-xs-6  {
@@ -35,4 +34,7 @@
   margin: 5px 5px 15px 5px;
   background-image:url("https://lh5.googleusercontent.com/-PfncbBm91-A/AAAAAAAAAAI/AAAAAAAAAAA/iiQJuN_7LJw/photo.jpg");
   background-size:cover;
+}
+.grid-stack {
+  background: transparent;
 }
