@@ -1,7 +1,9 @@
 == Boxpage
+Image[link:public/box_logo.png]
 
-Rails 4.2.0 Default Host on Nitrous.io
-> rails server -b 0.0.0.0
+===Rails 4.2.0 Default Host on Nitrous.io
+  rails server -b 0.0.0.0
 
-=Aplikacja na Openshift https://issues.jboss.org/secure/attachmentzip/unzip/12463385/12353165%5B1%5D/openshift_logo_64.png
-http://mosinskiblog.herokuapp.com/
+=Aplikacja na Openshift Image[link:public/openshift_logo.png]
+
+http://boxpage-m1l05z.rhcloud.com/
