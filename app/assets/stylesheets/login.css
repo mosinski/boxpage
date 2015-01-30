@@ -156,3 +156,12 @@ input#user_remember_me {
   width:15px;
   height: 15px;
 }
+
+form#edit_user input#user_username,
+form#edit_user input#user_password,
+form#edit_user input#user_password_confirmation {
+  border-radius: 0px;
+}
+form#edit_user input#user_email {
+  border-top:none;
+}

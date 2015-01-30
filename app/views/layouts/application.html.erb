@@ -7,11 +7,10 @@
     <%= csrf_meta_tags %>
   </head>
   <body>
-    <div id="navbar" class="navbar-fixed-top navbar-collapse collapse">
-      <ul class="nav navbar-nav navbar-right">
+      <ul class="nav navbar-nav navbar-right navbar-collapse">
         <% if user_signed_in? %>
           <li>
-            <%= link_to "#", :class => 'navbar-link' do %>
+            <%= link_to "#", :class => 'navbar-link', "data-toggle" => "popover", "data-placement" => "bottom", "data-content" => "#{render 'shared/user_box'}", id: "user-box" do %>
               <i class="fa fa-th-large fa-3" style="font-size:20px;color:#000;"></i>
             <% end %>
           </li>
@@ -25,7 +24,6 @@
           <li><%= link_to "Login", new_user_session_path, :class => 'navbar-link' %></li>
         <% end %>
       </ul>
-    </div>
 
     <%= yield %>
 

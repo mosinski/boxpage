@@ -3,31 +3,43 @@
     <div id="devise_errors"></div>
     <div class="avatar"></div>
     <div class="form-box">
-      <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: {method: :put}, format: :json, remote: true) do |f| %>
-        <%= f.text_field :username, autofocus: true, placeholder: "username" %>
+      <div role="tabpanel">
+        <ul class="nav nav-tabs" role="tablist">
+          <li role="presentation" class="active"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab"><i class="fa fa-user-secret fa-3" style="font-size:20px;color:#000;"></i></a></li>
+          <li role="presentation"><a href="#home" aria-controls="home" role="tab" data-toggle="tab"><i class="fa fa-sliders fa-3" style="font-size:20px;color:#000;"></i></a></li>
+          <li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab"><i class="fa fa-user-times fa-3" style="font-size:20px;color:#000;"></i></a></li>
+        </ul>
 
-        <%= f.email_field :email, autofocus: true, placeholder: "e-mail" %>
+        <div class="tab-content">
+          <div role="tabpanel" class="tab-pane active" id="profile">
+            <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: {method: :put}, format: :json, remote: true) do |f| %>
+              <%= f.text_field :username, autofocus: true, placeholder: "username" %>
 
-        <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-          <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-        <% end %>
+              <%= f.email_field :email, autofocus: true, placeholder: "e-mail" %>
 
-        <%= f.password_field :password, autocomplete: "off", placeholder: "password" %>
-        <i>(leave blank if you don't want to change it)</i>
+              <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+                <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+              <% end %>
 
-        <%= f.password_field :password_confirmation, autocomplete: "off", placeholder: "password confirmation" %>
+              <%= f.password_field :password, autocomplete: "off", placeholder: "password" %>
 
-      <%= f.password_field :current_password, autocomplete: "off", placeholder: "current password" %>
-        <i>(we need your current password to confirm your changes)</i>
+              <%= f.password_field :password_confirmation, autocomplete: "off", placeholder: "password confirmation" %>
 
-        <%= f.submit "Update", class: "btn btn-info btn-block login" %>
-      <% end %>
+            <%= f.password_field :current_password, autocomplete: "off", placeholder: "current password" %>
+
+              <%= f.submit "Update", class: "btn btn-info btn-block login" %>
+            <% end %>
+          </div>
+          <div role="tabpanel" class="tab-pane" id="home"></div>
+          <div role="tabpanel" class="tab-pane" id="messages">
+            <br>
+            <p>
+              Unhappy?
+              <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %>
+            </p>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>
-
-<h3>Cancel my account</h3>
-
-<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
-
-<%= link_to "Back", :back %>

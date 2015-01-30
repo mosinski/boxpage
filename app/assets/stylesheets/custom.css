@@ -7,6 +7,7 @@
 }
 .navbar-nav > li {
   opacity: .55;
+  z-index: 9999;
 }
 .navbar-nav > li:hover,
 .navbar-nav > li:focus,
@@ -22,7 +23,7 @@
   border-bottom: 1px solid #ebebeb;
 }
 .popover {
-  width:300px;
+  max-width:700px;
 }
 .popover .col-xs-12, .popover .col-xs-6  {
   padding:0px;
@@ -37,4 +38,16 @@
 }
 .grid-stack {
   background: transparent;
+}
+.popover div#box_icons {
+  font-size: 55px;
+}
+.popover div#box_icons .col-xs-4:hover {
+  border: 1px solid #e5e5e5;
+}
+.popover div#box_profile {
+  width:230px;
+}
+.popover div#box_content {
+  width:300px;
 }
