@@ -1,5 +1,7 @@
 class User < ActiveRecord::Base
   attr_accessor :login
+  has_one :dashboard
+  after_create :create_dashboard
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
@@ -13,5 +15,11 @@ class User < ActiveRecord::Base
     else
       where(conditions).first
     end
+  end
+
+  private
+
+  def create_dashboard
+    Dashboard.create(user_id: self.id)
   end
 end
