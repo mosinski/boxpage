@@ -1,6 +1,6 @@
 <div class="container">
   <div class="login-container">
-    <div id="devise_errors"></div>
+    <div id="form_errors"></div>
     <div class="avatar"></div>
     <div class="form-box">
       <div role="tabpanel">
@@ -25,17 +25,26 @@
 
               <%= f.password_field :password_confirmation, autocomplete: "off", placeholder: "password confirmation" %>
 
-            <%= f.password_field :current_password, autocomplete: "off", placeholder: "current password" %>
+              <%= f.password_field :current_password, autocomplete: "off", placeholder: "current password" %>
 
               <%= f.submit "Update", class: "btn btn-info btn-block login" %>
             <% end %>
           </div>
-          <div role="tabpanel" class="tab-pane" id="home"></div>
+          <div role="tabpanel" class="tab-pane" id="home">
+            <br>
+            <%= form_for(current_user.dashboard, html: {method: :put}, format: :json, remote: true) do |f| %>
+              <%= f.label :background %>
+
+              <%= f.hidden_field :background, as: :minicolors %>
+
+              <%= f.submit "Update", class: "btn btn-info btn-block login" %>
+            <% end %>
+          </div>
           <div role="tabpanel" class="tab-pane" id="messages">
             <br>
             <p>
               Unhappy?
-              <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %>
+              <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: "btn btn-danger login" %>
             </p>
           </div>
         </div>
@@ -43,3 +52,8 @@
     </div>
   </div>
 </div>
+<script>
+  $(document).ready( function() {
+    $('input#dashboard_background').minicolors({theme: 'bootstrap'})
+  });
+</script>

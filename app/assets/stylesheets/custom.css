@@ -51,3 +51,10 @@
 .popover div#box_content {
   width:300px;
 }
+.navbar-right {
+  margin-right: 0px;
+  padding-right: 0px;
+}
+span.minicolors-swatch-color {
+  border: 1px solid #ccc;
+}

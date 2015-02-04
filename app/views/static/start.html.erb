@@ -1,6 +1,8 @@
 <style>
   .grid-stack-item-content {background: white;}
-  body {background: #ffffff;}
+  <% if user_signed_in? %>
+    body {background: <%= current_user.dashboard.background %>;}
+  <% end %>
 </style>
 <div class="grid-stack">
   <div class="grid-stack-item" data-gs-x="2" data-gs-y="0" data-gs-width="8" data-gs-height="1">
