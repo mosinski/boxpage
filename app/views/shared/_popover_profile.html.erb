@@ -1,16 +1,31 @@
 <div id="box_profile">
   <div class='col-xs-12'>
     <div class='col-xs-6 col-avatar'>
+      <span>Zmień zdjęcie</span>
     </div>
-    <div class='col-xs-6' style="white-space:nowrap">
+    <div class='col-xs-6 col-user-info'>
       <div><strong><%= current_user.username %></strong></div>
       <div><%= current_user.email %></div>
       <div><%= link_to "Konto", edit_user_registration_path %> – <%= link_to "Prywatność", edit_user_registration_path %></div>
+      <div><%= link_to "Wyświetl profil", profile_path, class: 'btn btn-info' %></div>
     </div>
   </div>
   <div class='clearfix'></div>
   <div class='popover-footer'>
+    <%= form_for(current_user.dashboard, html: {method: :put, class: "pull-left", "title"=>"Edit mode", rel: "title"}, format: :json, remote: true) do |f| %>
+      <%= f.check_box :editable, class: "js-switch pull-left", "value" => "#{current_user.dashboard.editable}" %>
+    <% end %>
     <%= link_to "Logout", destroy_user_session_path, method: :delete, class: 'btn btn-default pull-right' %>
     <div class="clearfix"></div>
   </div>
 </div>
+<script>
+  var elem = document.querySelector('.js-switch');
+  var init = new Switchery(elem);
+  elem.onchange = function() {
+    $(this).prop('checked', elem.checked);
+    $(this).val(elem.checked);
+    $('#edit_dashboard_1').submit();
+  };
+  $('#edit_dashboard_1').tooltip();
+</script>

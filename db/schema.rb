@@ -17,6 +17,7 @@ ActiveRecord::Schema.define(version: 20150202231940) do
     t.integer  "user_id",                             null: false
     t.integer  "background_type", default: 1,         null: false
     t.string   "background",      default: "#ffffff", null: false
+    t.boolean  "editable",        default: true,      null: false
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
   end

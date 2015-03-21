@@ -165,3 +165,6 @@ form#edit_user input#user_password_confirmation {
 form#edit_user input#user_email {
   border-top:none;
 }
+.omb_btn-facebook {background: #3b5998;}
+.omb_btn-twitter {background: #00aced;}
+.omb_btn-google {background: #c32f10;}

@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+ruby '2.2.0'
+
 gem 'rails', '4.2.0'
 gem 'rack', '1.6.0'
 gem 'sqlite3'
@@ -19,3 +21,4 @@ end
 gem 'devise'
 gem 'font-awesome-rails'
 gem 'jquery-minicolors-rails'
+gem 'switchery-rails'

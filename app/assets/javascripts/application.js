@@ -18,4 +18,5 @@
 //= require underscore.min
 //= require gridstack.min
 //= require jquery.minicolors
+//= require switchery
 //= require_tree .

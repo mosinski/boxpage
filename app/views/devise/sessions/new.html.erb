@@ -2,6 +2,23 @@
   <div class="login-container">
     <div id="form_errors"></div>
     <div class="avatar"></div>
+    <div class="row" style="padding:0px 10px 10px 10px">
+      <div class="col-xs-4">
+        <a href="#" class="btn btn-lg btn-block omb_btn-facebook">
+          <i class="fa fa-facebook"></i>
+        </a>
+      </div>
+      <div class="col-xs-4">
+        <a href="#" class="btn btn-lg btn-block omb_btn-twitter">
+          <i class="fa fa-twitter"></i>
+        </a>
+      </div>  
+      <div class="col-xs-4">
+        <a href="#" class="btn btn-lg btn-block omb_btn-google">
+          <i class="fa fa-google-plus"></i>
+        </a>
+      </div>  
+    </div>
     <div class="form-box">
       <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: {id: "sign_in_user"}, format: :json, remote: true) do |f| %>
         <%= f.text_field :login, autofocus: true, placeholder: "E-mail or Username" %>
@@ -25,7 +42,7 @@
           </div>
         <% end %>
         <% if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
-          <br><br>
+          <br>
           <div class="text-center">
             <%= link_to "Forgot your password?", new_password_path(resource_name) %>
           </div>
